@@ -1,0 +1,30 @@
+################################################################################
+# general
+
+# prevent listing directories
+IndexIgnore *
+DirectoryIndex /index.php
+
+# prevent viewing .htaccess & .htpasswd files
+<files ~ "^\.ht">
+    order allow,deny
+    deny from all
+    satisfy all
+</files>
+
+# default character set
+AddDefaultCharset utf-8
+
+# applciation handlers
+AddHandler application/x-httpd-php .php .css
+ContentDigest On
+
+
+################################################################################
+## error documents
+ErrorDocument 400 /error.php?id=400
+ErrorDocument 401 /error.php?id=401
+ErrorDocument 410 /error.php?id=410
+ErrorDocument 403 /error.php?id=403
+ErrorDocument 404 /error.php?id=404
+ErrorDocument 500 /error.php?id=500

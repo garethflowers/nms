@@ -1,0 +1,354 @@
+@media screen {
+
+    html, body {
+        font-family: tahoma, arial, helvetica, sans-serif;
+        font-size: 12px;
+        color: #333;
+        background-color: #f9f9f9;
+    }
+
+    input[type=text], input[type=password], input[type=radio], textarea, option, select {
+        font-family: tahoma, arial, helvetica, sans-serif;
+        font-size: 12px;
+    }
+
+    input[type=text], input[type=password], textarea, select {
+        background-color: #ffffff;
+        border: 1px solid #cccccc;
+        padding: .1em;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+    }
+
+    input[type=text].error, input[type=password].error, input[type=radio].error, textarea.error, select.error {
+        background-color: #ffeeee;
+        border: 1px solid #ff9999;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+    }
+
+    a:active, a:link, a:visited {
+        text-decoration: none;
+        font-weight: bold;
+        color: #990033;
+    }
+
+    a:hover {
+        color: #990033;
+        text-decoration: underline;
+    }
+
+    h1 {
+        font-size: 1.4em;
+        border-bottom: 1px solid #999;
+        padding-bottom: .5em;
+        font-weight: bold;
+        font-family: 'trebuchet ms', arial, helvetica, sans-serif;
+    }
+
+    h2 {
+        font-size: 1.4em;
+        padding: .5em 0;
+        font-family: 'trebuchet ms', arial, helvetica, sans-serif;
+    }
+
+    h3 {
+        font-size: 1.2em;
+        margin: .5em 0 .5em 0;
+        padding: .1em .5em;
+        font-family: 'trebuchet ms', arial, helvetica, sans-serif;
+        background-color: #eee;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        vertical-align: text-bottom;
+    }
+
+    h3 img {
+        vertical-align: text-bottom;
+    }
+
+    img {
+        border: none;
+    }
+
+    .links {
+        float: right;
+    }
+
+    hr {
+        height: 1px;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    em {
+        font-style: italic;
+    }
+
+    /****************************************/
+    /* header */
+
+    #header {
+        color: #fff;
+        font-size: 1.8em;
+        font-weight: bold;
+        padding: .5em;
+        background-color: #003366;
+        font-family: 'trebuchet ms', arial, helvetica, sans-serif;
+    }
+
+    #header a {
+        color: #f9f9f9;
+    }
+
+    #header a:hover {
+        text-decoration: none;
+    }
+
+    #header-menu {
+        float: right;
+        padding: .5em;
+    }
+
+    #header-menu a {
+        color: #eee;
+        padding: .5em;
+    }
+
+    #header-menu a:hover {
+        background-color: #f9f9f9;
+        color: #003366;
+        text-decoration: none;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+
+    }
+
+    #header-menu li {
+        float: left;
+        padding: .5em;
+        line-height: 1.8em;
+    }
+
+    /****************************************/
+    /* body */
+
+    #body {
+        padding: 1em;
+    }
+
+    #body li {
+        padding: .2em;
+        margin-left: 2.5em;
+        list-style-image: url(/lib/images/arrow.png);
+    }
+
+    #body li.none {
+        padding: .2em;
+        margin-left: 2.5em;
+        list-style-image: none;
+    }
+
+    table.two-col {
+        width: 100%;
+    }
+
+    table.two-col tr td {
+        width: 50%;
+        vertical-align: top;
+        padding: 0 .5em;
+    }
+
+    table.two-col tr td td {
+        width: auto;
+    }
+
+    table.details {
+        width: 100%;
+    }
+
+    table.details tr td {
+        padding: .1em;
+        vertical-align: top;
+    }
+
+    table.details tr th {
+        padding: .1em 1em .1em .1em;
+        font-weight: bold;
+        text-align: right;
+        vertical-align: top;
+        width: 30%;
+        white-space: nowrap;
+    }
+
+    /****************************************/
+    /* results */
+
+    table.results {
+        width: 100%;
+        clear: none;
+        border-collapse: separate;
+        border-spacing: 1px;
+    }
+
+    table.results th {
+        color: #ffffff;
+        background-color: #336699;
+        margin: 1px;
+        padding: 3px 6px;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+
+    table.results th a {
+        color: #ffffff;
+    }
+
+    table.results th.sortheader {
+        cursor: pointer;
+    }
+
+    table.results th.sortup {
+        background-image: url(/lib/images/up.png);
+        background-color: #334466;
+        background-repeat: no-repeat;
+        background-position: 95% 50%;
+    }
+
+    table.results th.sortdown {
+        background-image: url(/lib/images/down.png);
+        background-color: #335588;
+        background-repeat: no-repeat;
+        background-position: 95% 50%;
+    }
+
+    table.results td {
+        padding: 3px 6px;
+    }
+
+    table.results tr {
+        background-color: #eeeedd;
+        vertical-align: top;
+    }
+
+    table.results tr.alt {
+        background-color: #eeeecc;
+        vertical-align: top;
+    }
+
+    table.results tr:hover {
+        background-color: #e9eeee;
+    }
+
+    /****************************************/
+    /* general */
+
+    .hac {
+        text-align: center;
+    }
+
+    .har {
+        text-align: right;
+    }
+
+    .hal {
+        text-align: left;
+    }
+
+    .vam {
+        vertical-align: middle;
+    }
+
+    .vat {
+        vertical-align: top;
+    }
+
+    .nowrap {
+        white-space: nowrap;
+    }
+
+    .red {
+        color: #f00;
+    }
+
+    .blue {
+        color: #00f;
+    }
+
+    .small {
+        font-size: 75%;
+    }
+
+    .bills {
+        font-family: 'comic sans ms', verdana, arial, sans-serif;
+    }
+
+    .fw {
+        width: 100%;
+    }
+
+}
+
+@media print {
+
+    #header-menu, #header, form, #footer, h1.links {
+        display: none;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+    }
+
+    body {
+        font-family: tahoma, arial, helvetica, sans-serif;
+        background-color: #fff;
+        color: #000;
+        font-size: 10px;
+    }
+
+    a, a:hover {
+        color: #000;
+        text-decoration: none;
+    }
+
+    table.results {
+        width: 100%;
+        clear: none;
+        border-collapse: collapse;
+        border-spacing: 1px;
+    }
+
+    table.results th {
+        background-color: #ccc;
+        border-collapse: collapse;
+        padding: 1px 2px;
+        font-weight: bold;
+        border: 1px solid #ccc;
+        white-space: nowrap;
+    }
+
+    table.results td {
+        border-collapse: collapse;
+        padding: 1px 2px;
+        border: 1px solid #ccc;
+    }
+
+    h1 {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    h2 {
+        font-size: 12px;
+    }
+
+    .fw {
+        width: 100%;
+    }
+
+    .vat {
+        vertical-align: top;
+    }
+
+}
