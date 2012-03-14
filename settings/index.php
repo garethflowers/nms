@@ -1,4 +1,5 @@
 <?php
+
 require_once('../lib/base.php');
 
 // check security level
@@ -29,7 +30,9 @@ TitleSettings(false, false);
     <li><a href="#" id="back">Backup</a> &nbsp; <span id="backmsg"></span></li>
 </ul>
 
-<?php $output = 'var req1 = new Request({url: "../lib/maintenance/optimise.php",';
+<?php
+
+$output = 'var req1 = new Request({url: "../lib/maintenance/optimise.php",';
 $output .= 'onSuccess: function(txt){$("optmsg").innerHTML = "<strong>"+txt+"</strong>";},';
 $output .= 'onFailure: function(){$("optmsg").innerHTML = "<strong>FAILED</strong>";}});';
 $output .= '$("opt").addEvent(\'click\', function(e){$("optmsg").innerHTML = "<em>optimising the system, please wait...</em> <img src=\"/lib/images/load.gif\" alt=\"loading\" class=\"vam\" />";req1.send();});';

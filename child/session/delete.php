@@ -16,7 +16,7 @@ $session = new ChildSession($id);
 // form submission
 if (isset($_POST['process'])) {
     $session->Delete();
-    header('location: index.php?i='.$child->id);
+    header('location: index.php?i=' . $child->id);
 }
 
 PageHeader();
@@ -28,11 +28,11 @@ TitleChildSession($child, $session);
 
 <p>&nbsp;</p>
 
-<p>Would you like to delete session details for '<?php echo FormatDate($session->date).' '.FormatSession($session->session); ?>'?</p>
+<p>Would you like to delete session details for '<?php echo FormatDate($session->date) . ' ' . FormatSession($session->session); ?>'?</p>
 
 <p>&nbsp;</p>
 
-<form method="post" action="<?php echo PHP_SELF.'?i='.$child->id.'&amp;s='.$session->id; ?>" id="formdelete">
+<form method="post" action="<?php echo PHP_SELF . '?i=' . $child->id . '&amp;s=' . $session->id; ?>" id="formdelete">
 
     <div>
         <?php echo FormSubmit('process', 'Delete Session', 'formdelete'); ?>

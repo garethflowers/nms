@@ -12,11 +12,10 @@ $dates->id = isset($_GET['i']) && is_numeric($_GET['i']) ? intval($_GET['i']) : 
 if (isset($_POST['process'])) {
     $dates->Update($_POST);
     $result = $dates->Save();
-    if (is_array($result) && count($result)==0) {
-        header('location: index.php?i='.$dates->id);
+    if (is_array($result) && count($result) == 0) {
+        header('location: index.php?i=' . $dates->id);
     }
-}
-elseif ($dates->id != 0) {
+} elseif ($dates->id != 0) {
     $dates->Load($dates->id);
 }
 
@@ -25,9 +24,9 @@ PageHeader();
 TitleSettings(true, false);
 ?>
 
-<h2><?php echo $dates->id==0?'Add':'Edit'; ?> Date</h2>
+<h2><?php echo $dates->id == 0 ? 'Add' : 'Edit'; ?> Date</h2>
 
-<form action="<?php echo $dates->id==0?PHP_SELF:PHP_SELF.'?i='.$dates->id; ?>" method="post" id="formdates">
+<form action="<?php echo $dates->id == 0 ? PHP_SELF : PHP_SELF . '?i=' . $dates->id; ?>" method="post" id="formdates">
 
     <table class="details">
         <tr>
@@ -47,7 +46,7 @@ TitleSettings(true, false);
             <td colspan="2">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2" class="hac"><?php echo FormSubmit('process', $dates->id==0?'Add':'Update', 'formdates'); ?></td>
+            <td colspan="2" class="hac"><?php echo FormSubmit('process', $dates->id == 0 ? 'Add' : 'Update', 'formdates'); ?></td>
         </tr>
     </table>
 

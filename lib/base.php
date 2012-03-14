@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Base.php
  */
@@ -28,26 +29,26 @@ define('DOCUMENT_ROOT', strtolower($_SERVER['DOCUMENT_ROOT']));
 
 
 // include functions
-require_once($_SERVER['DOCUMENT_ROOT'].'/config/config.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/common/db.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/common/format.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/common/forms.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/common/javascript.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/common/login.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/common/sessions.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/common/navigation.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/common/validation.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/common/variables.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/user.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/child.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/child_session.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/child_contact.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/staff.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/staff_contact.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/dates.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/rooms.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/religion.php');
-require_once($_SERVER['DOCUMENT_ROOT'].'/lib/model/nationality.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/config/config.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/common/db.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/common/format.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/common/forms.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/common/javascript.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/common/login.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/common/sessions.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/common/navigation.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/common/validation.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/common/variables.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/model/user.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/model/child.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/model/child_session.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/model/child_contact.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/model/staff.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/model/staff_contact.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/model/dates.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/model/rooms.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/model/religion.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/lib/model/nationality.php');
 
 
 // ensure sessions are working
@@ -56,7 +57,6 @@ session_start();
 
 // connect to the database
 $_SESSION['db'] = new Db($config['host'], $config['port'], $config['database'], $config['username'], $config['password']);
-
 
 // id checker
 function CheckID($id) {
@@ -68,7 +68,6 @@ function CheckID($id) {
     }
 }
 
-if (!LoginLevel(1) && PHP_SELF!='/login.php') {
+if (!LoginLevel(1) && PHP_SELF != '/login.php') {
     header('location: /login.php');
 }
-?>

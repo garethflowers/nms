@@ -1,9 +1,11 @@
 <?php
+
 /*
  * Javascript - Popup Calendar
  */
+
 function JsCalendar($id) {
-    $output = 'new vlaDatePicker(\''.$id.'\',{';
+    $output = 'new vlaDatePicker(\'' . $id . '\',{';
     $output .= 'offset:{y:6},';
     $output .= 'format:\'d-m-y\',';
     $output .= 'separator:\'-\',';
@@ -15,20 +17,20 @@ function JsCalendar($id) {
     return $output;
 }
 
-
 /*
  * Javascript - Sorting Table
  */
+
 function JsSortingTable($id) {
-    $output = 'new SortingTable(\''.$id.'\',{});';
+    $output = 'new SortingTable(\'' . $id . '\',{});';
     return $output;
 }
-
 
 /*
  * Javascript - Html Javascript Block
  */
-function JsBlock($javascript, $domready=false) {
+
+function JsBlock($javascript, $domready = false) {
     $output = '<script type="text/javascript">/* <![CDATA[ */';
 
     if ($domready) {
@@ -45,4 +47,5 @@ function JsBlock($javascript, $domready=false) {
 
     return $output;
 }
+
 ?>

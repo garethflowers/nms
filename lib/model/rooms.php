@@ -1,8 +1,8 @@
 <?php
+
 class Rooms {
 
     public $id = 0;
-
     public $name = null;
     public $total = null;
     public $min = null;
@@ -69,36 +69,34 @@ class Rooms {
         return $result;
     }
 
-
     public function Save() {
         $result = $this->Validate();
 
         if (count($result) == 0) {
             if ($this->id > 0) {
                 $query = 'update rooms';
-                $query .= ' set name=' . Db::SqlFormat($this->name,'string');
-                $query .= ',total=' . Db::SqlFormat($this->total,'int');
-                $query .= ',min=' . Db::SqlFormat($this->min,'int');
-                $query .= ',max=' . Db::SqlFormat($this->max,'int');
-                $query .= ',include=' . Db::SqlFormat($this->include,'bool');
-                $query .= ',price_session=' . Db::SqlFormat($this->price_session,'dec');
-                $query .= ',price_day=' . Db::SqlFormat($this->price_day,'dec');
-                $query .= ' where id=' . Db::SqlFormat($this->id,'int');
+                $query .= ' set name=' . Db::SqlFormat($this->name, 'string');
+                $query .= ',total=' . Db::SqlFormat($this->total, 'int');
+                $query .= ',min=' . Db::SqlFormat($this->min, 'int');
+                $query .= ',max=' . Db::SqlFormat($this->max, 'int');
+                $query .= ',include=' . Db::SqlFormat($this->include, 'bool');
+                $query .= ',price_session=' . Db::SqlFormat($this->price_session, 'dec');
+                $query .= ',price_day=' . Db::SqlFormat($this->price_day, 'dec');
+                $query .= ' where id=' . Db::SqlFormat($this->id, 'int');
                 $query .= ';';
                 Db::ExecuteQuery($query);
-            }
-            else {
+            } else {
                 $query = 'insert into rooms (name,total,min,max,include,price_session,price_day)';
-                $query .= ' values (' . Db::SqlFormat($this->name,'string');
-                $query .= ',' . Db::SqlFormat($this->total,'int');
-                $query .= ',' . Db::SqlFormat($this->min,'int');
-                $query .= ',' . Db::SqlFormat($this->max,'int');
-                $query .= ',' . Db::SqlFormat($this->include,'bool');
-                $query .= ',' . Db::SqlFormat($this->price_session,'dec');
-                $query .= ',' . Db::SqlFormat($this->price_day,'dec');
+                $query .= ' values (' . Db::SqlFormat($this->name, 'string');
+                $query .= ',' . Db::SqlFormat($this->total, 'int');
+                $query .= ',' . Db::SqlFormat($this->min, 'int');
+                $query .= ',' . Db::SqlFormat($this->max, 'int');
+                $query .= ',' . Db::SqlFormat($this->include, 'bool');
+                $query .= ',' . Db::SqlFormat($this->price_session, 'dec');
+                $query .= ',' . Db::SqlFormat($this->price_day, 'dec');
                 $query .= ');';
                 $query .= 'select currval(\'rooms_id_seq\') as currval;';
-                $data = Db::GetData($query,false);
+                $data = Db::GetData($query, false);
                 $this->id = intval($data['currval']);
             }
         }
@@ -110,10 +108,10 @@ class Rooms {
         if (is_numeric($id)) {
             $query = 'select id,name,total,min,max,include,price_session,price_day';
             $query .= ' from rooms';
-            $query .= ' where id=' . Db::SqlFormat($id,'int');
+            $query .= ' where id=' . Db::SqlFormat($id, 'int');
             $query .= ' limit 1;';
             $data = Db::GetData($query);
-            if (count($data)>0) {
+            if (count($data) > 0) {
                 $this->Update($data);
             }
         }
@@ -121,9 +119,10 @@ class Rooms {
 
     public function Delete() {
         $query = 'delete from rooms';
-        $query .= ' where id=' . Db::SqlFormat($this->id,'int');
+        $query .= ' where id=' . Db::SqlFormat($this->id, 'int');
         Db::ExecuteQuery($query);
     }
 
 }
+
 ?>

@@ -12,13 +12,14 @@ $staff = new Staff($id);
 
 // form submission
 if (isset($_POST['process'])) {
-	$staff->Delete();
-	header('location: index.php?i='.$staff->id);
+    $staff->Delete();
+    header('location: index.php?i=' . $staff->id);
 }
 
 PageHeader();
 
-TitleStaff($staff); ?>
+TitleStaff($staff);
+?>
 
 <h2>Delete Child Information</h2>
 
@@ -30,24 +31,25 @@ $query .= ' from child';
 $query .= ' where keyworker=' . Db::SqlFormat($staff->id, 'int');
 $query .= ' or backup_keyworker=' . Db::SqlFormat($staff->id, 'int');
 $data = Db::GetData($query);
-if (intval($data['count']) > 0) { ?>
+if (intval($data['count']) > 0) {
+    ?>
 
-<p>This staff member cannot be deleted because it is a keyworker/backup keyworker
-	for <?php echo intval($data['count']); ?> children.</p>
+    <p>This staff member cannot be deleted because it is a keyworker/backup keyworker
+        for <?php echo intval($data['count']); ?> children.</p>
 
 <?php } else { ?>
 
-<p>Would you like to delete all staff details for '<?php echo $staff->forename.' '.$staff->surname; ?>'?</p>
+    <p>Would you like to delete all staff details for '<?php echo $staff->forename . ' ' . $staff->surname; ?>'?</p>
 
-<p>&nbsp;</p>
+    <p>&nbsp;</p>
 
-<form id="formdelete" method="post" action="<?php echo PHP_SELF.'?i='.$staff->id; ?>">
+    <form id="formdelete" method="post" action="<?php echo PHP_SELF . '?i=' . $staff->id; ?>">
 
-    <div>
-		<?php echo FormSubmit('process', 'Delete Staff', 'formdelete'); ?>
-    </div>
+        <div>
+            <?php echo FormSubmit('process', 'Delete Staff', 'formdelete'); ?>
+        </div>
 
-</form>
+    </form>
 
 <?php } ?>
 
@@ -56,7 +58,7 @@ if (intval($data['count']) > 0) { ?>
 <p>&nbsp;</p>
 
 <ul>
-	<li><a href="view.php?i=<?php echo $staff->id; ?>">View Staff details</a></li>
+    <li><a href="view.php?i=<?php echo $staff->id; ?>">View Staff details</a></li>
 </ul>
 
 <?php PageFooter(); ?>

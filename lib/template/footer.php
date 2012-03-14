@@ -1,11 +1,11 @@
 <?php if (false) { ?>
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <div>
-            <?php }?>
+    <html>
+        <head>
+            <title></title>
+        </head>
+        <body>
+            <div>
+            <?php } ?>
 
         </div>
     </body>

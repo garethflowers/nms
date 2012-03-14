@@ -16,8 +16,8 @@ if (isset($_POST['process'])) {
     $session->child_id = $child->id;
     $session->Update($_POST);
     $result = $session->Save();
-    if (count($result)==0) {
-        header('location: index.php?i='.$child->id);
+    if (count($result) == 0) {
+        header('location: index.php?i=' . $child->id);
     }
 } elseif ($session->id != 0) {
     $session->Load($session->id);
@@ -25,12 +25,12 @@ if (isset($_POST['process'])) {
 
 PageHeader();
 
-TitleChildSession($child,$session);
+TitleChildSession($child, $session);
 ?>
 
-<h2><?php echo $session->id==0?'Add':'Edit'; ?> Session Information</h2>
+<h2><?php echo $session->id == 0 ? 'Add' : 'Edit'; ?> Session Information</h2>
 
-<form action="<?php echo $session->id==0?PHP_SELF.'?i='.$id:PHP_SELF.'?i='.$id.'&amp;s='.$session->id; ?>" method="post" id="formchildsession">
+<form action="<?php echo $session->id == 0 ? PHP_SELF . '?i=' . $id : PHP_SELF . '?i=' . $id . '&amp;s=' . $session->id; ?>" method="post" id="formchildsession">
 
     <table class="details">
         <tr>
@@ -40,7 +40,7 @@ TitleChildSession($child,$session);
         </tr>
         <tr>
             <th><?php echo FormLabel('session', 'Session'); ?></th>
-            <td><?php echo FormCombo('session', array('D'=>'Day','A'=>'Morning','P'=>'Afternoon'), $session->session, 'required'); ?></td>
+            <td><?php echo FormCombo('session', array('D' => 'Day', 'A' => 'Morning', 'P' => 'Afternoon'), $session->session, 'required'); ?></td>
         </tr>
         <tr>
             <th><?php echo FormLabel('date', 'Date'); ?></th>
@@ -62,7 +62,7 @@ TitleChildSession($child,$session);
             <td colspan="2">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2" class="hac"><?php echo FormSubmit('process', $session->id==0?'Add':'Update', 'formchildsession'); ?></td>
+            <td colspan="2" class="hac"><?php echo FormSubmit('process', $session->id == 0 ? 'Add' : 'Update', 'formchildsession'); ?></td>
         </tr>
     </table>
 

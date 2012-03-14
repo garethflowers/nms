@@ -34,23 +34,23 @@ TitleStaff($staff);
                     <td><?php echo FormatDate($staff->dob); ?></td>
                 </tr>
                 <?php if (LoginLevel(2)) { ?>
-                <tr>
-                    <td colspan="2">
-                        <h3>Bank</h3>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Name of Bank :</th>
-                    <td><?php echo FormatText($staff->bank_name); ?></td>
-                </tr>
-                <tr>
-                    <th>Account Number :</th>
-                    <td><?php echo FormatText($staff->bank_account); ?></td>
-                </tr>
-                <tr>
-                    <th>Sort Code :</th>
-                    <td><?php echo FormatText($staff->bank_sort_code); ?></td>
-                </tr>
+                    <tr>
+                        <td colspan="2">
+                            <h3>Bank</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Name of Bank :</th>
+                        <td><?php echo FormatText($staff->bank_name); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Account Number :</th>
+                        <td><?php echo FormatText($staff->bank_account); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Sort Code :</th>
+                        <td><?php echo FormatText($staff->bank_sort_code); ?></td>
+                    </tr>
                 <?php } ?>
                 <tr>
                     <td colspan="2">
@@ -66,19 +66,19 @@ TitleStaff($staff);
                     <td><?php echo FormatText($staff->doctor_address); ?></td>
                 </tr>
                 <?php if (LoginLevel(2)) { ?>
-                <tr>
-                    <td colspan="2">
-                        <h3>Login</h3>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Username :</th>
-                    <td><?php echo FormatText($staff->username); ?></td>
-                </tr>
-                <tr>
-                    <th>Password :</th>
-                    <td><?php echo FormatText($staff->password); ?></td>
-                </tr>
+                    <tr>
+                        <td colspan="2">
+                            <h3>Login</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Username :</th>
+                        <td><?php echo FormatText($staff->username); ?></td>
+                    </tr>
+                    <tr>
+                        <th>Password :</th>
+                        <td><?php echo FormatText($staff->password); ?></td>
+                    </tr>
                 <?php } ?>
             </table>
         </td>
@@ -132,10 +132,10 @@ TitleStaff($staff);
                     <td><?php echo FormatText(strtoupper($staff->vehicle_registration)); ?></td>
                 </tr>
                 <?php if (LoginLevel(2)) { ?>
-                <tr>
-                    <th>National Insurance No. :</th>
-                    <td><?php echo FormatText($staff->national_insurance); ?></td>
-                </tr>
+                    <tr>
+                        <th>National Insurance No. :</th>
+                        <td><?php echo FormatText($staff->national_insurance); ?></td>
+                    </tr>
                 <?php } ?>
                 <tr>
                     <th>Next of Kin :</th>
@@ -157,39 +157,43 @@ TitleStaff($staff);
                 <tr>
                     <th>Assigned Room :</th>
                     <td>
-                        <?php  if (intval($staff->assigned_room)==0) {
+                        <?php
+                        if (intval($staff->assigned_room) == 0) {
                             echo 'n/a';
                         } else {
                             $query = 'select name';
                             $query .= ' from rooms';
-                            $query .= ' where id=' . Db::SqlFormat($staff->assigned_room,'int');
+                            $query .= ' where id=' . Db::SqlFormat($staff->assigned_room, 'int');
                             $query .= ' limit 1;';
                             $data = Db::GetData($query);
-                            echo '<a href="/reports/week_names.php?d='.date('d-m-Y').'&amp;r='.$staff->assigned_room.'">'.FormatText($data['name']).'</a>';
-                        } ?>
+                            echo '<a href="/reports/week_names.php?d=' . date('d-m-Y') . '&amp;r=' . $staff->assigned_room . '">' . FormatText($data['name']) . '</a>';
+                        }
+                        ?>
                     </td>
                 </tr>
                 <tr>
                     <th>Keyworker :</th>
                     <td>
-                        <?php $query = 'select count(id) as count';
+                        <?php
+                        $query = 'select count(id) as count';
                         $query .= ' from child';
                         $query .= ' where keyworker=' . Db::SqlFormat($staff->id, 'int');
                         $query .= ' limit 1;';
                         $data = Db::GetData($query);
-                        echo intval($data['count'])==0 ? 'n/a' : '<a href="keyworker.php?i='.$staff->id.'">'.$data['count'].' Children</a>';
+                        echo intval($data['count']) == 0 ? 'n/a' : '<a href="keyworker.php?i=' . $staff->id . '">' . $data['count'] . ' Children</a>';
                         ?>
                     </td>
                 </tr>
                 <tr>
                     <th>Backup Keyworker :</th>
                     <td>
-                        <?php $query = 'select count(id) as count';
+                        <?php
+                        $query = 'select count(id) as count';
                         $query .= ' from child';
                         $query .= ' where backup_keyworker=' . Db::SqlFormat($staff->id, 'int');
                         $query .= ' limit 1;';
                         $data = Db::GetData($query);
-                        echo intval($data['count'])==0 ? 'n/a' : '<a href="backup_keyworker.php?i='.$staff->id.'">'.$data['count'].' Children</a>';
+                        echo intval($data['count']) == 0 ? 'n/a' : '<a href="backup_keyworker.php?i=' . $staff->id . '">' . $data['count'] . ' Children</a>';
                         ?>
                     </td>
                 </tr>

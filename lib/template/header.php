@@ -32,31 +32,36 @@
 
         <ul id="header-menu">
             <?php if (LoginLevel(1)) { ?>
-            <li><a href="/" title="Back to NMS Today">Home</a></li>
-            <li class="menu"><a href="/child" title="View Child details">Children</a></li>
-            <li class="menu"><a href="/staff" title="View Staff details">Staff</a></li>
-            <li class="menu"><a href="/reports" title="View Reports">Reports</a></li>
-            <?php }
-            if (LoginLevel(2)) { ?>
-            <li class="menu"><a href="/settings" title="Adjust Settings">Settings</a></li>
-            <?php }
-            if (LoginCheck()) { ?>
-            <li class="menu"><a href="/login.php?o=t" title="Log Out">Log Out</a></li>
+                <li><a href="/" title="Back to NMS Today">Home</a></li>
+                <li class="menu"><a href="/child" title="View Child details">Children</a></li>
+                <li class="menu"><a href="/staff" title="View Staff details">Staff</a></li>
+                <li class="menu"><a href="/reports" title="View Reports">Reports</a></li>
+                <?php
+            }
+            if (LoginLevel(2)) {
+                ?>
+                <li class="menu"><a href="/settings" title="Adjust Settings">Settings</a></li>
+                <?php
+            }
+            if (LoginCheck()) {
+                ?>
+                <li class="menu"><a href="/login.php?o=t" title="Log Out">Log Out</a></li>
             <?php } ?>
         </ul>
 
         <div id="header">
             <?php if (LoginLevel(0)) { ?>
-            <a href="/">Nursery Management System</a>
+                <a href="/">Nursery Management System</a>
             <?php } else { ?>
-            Nursery Management System
+                Nursery Management System
             <?php } ?>
         </div>
 
         <div id="body">
 
             <?php if (false) { ?>
-        </div>
-    </body>
-</html>
-<?php }?>
+            </div>
+        </body>
+    </html>
+<?php }
+?>

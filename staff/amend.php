@@ -12,8 +12,8 @@ $staff->id = isset($_GET['i']) && is_numeric($_GET['i']) ? intval($_GET['i']) : 
 if (isset($_POST['process'])) {
     $staff->Update($_POST);
     $result = $staff->Save();
-    if (is_array($result) && count($result)==0) {
-        header('location: view.php?i='.$staff->id);
+    if (is_array($result) && count($result) == 0) {
+        header('location: view.php?i=' . $staff->id);
     }
 } elseif ($staff->id != 0) {
     $staff->Load($staff->id);
@@ -24,9 +24,9 @@ PageHeader();
 TitleStaff($staff);
 ?>
 
-<h2><?php echo $staff->id==0?'Add':'Edit'; ?> Staff Information</h2>
+<h2><?php echo $staff->id == 0 ? 'Add' : 'Edit'; ?> Staff Information</h2>
 
-<form action="<?php echo $staff->id==0?PHP_SELF:PHP_SELF.'?i='.$staff->id; ?>" method="post" id="formstaff">
+<form action="<?php echo $staff->id == 0 ? PHP_SELF : PHP_SELF . '?i=' . $staff->id; ?>" method="post" id="formstaff">
 
     <table class="two-col">
         <tr>
@@ -94,7 +94,7 @@ TitleStaff($staff);
                     </tr>
                     <tr>
                         <th><?php echo FormLabel('userlevel', 'User Level'); ?></th>
-                        <td><?php echo FormCombo('userlevel', array('1'=>'General User','2'=>'Administrator'), $staff->userlevel, 'required'); ?></td>
+                        <td><?php echo FormCombo('userlevel', array('1' => 'General User', '2' => 'Administrator'), $staff->userlevel, 'required'); ?></td>
                     </tr>
                 </table>
             </td>
@@ -170,8 +170,10 @@ TitleStaff($staff);
                     </tr>
                     <tr>
                         <th><?php echo FormLabel('assigned_room', 'Assigned Room'); ?></th>
-                        <td><?php $dictionary = Db::Dictionary('select id as k,name as v from rooms order by min;');
-                        echo FormCombo('assigned_room', array(''=>'n/a')+$dictionary, $staff->assigned_room, ''); ?></td>
+                        <td><?php
+$dictionary = Db::Dictionary('select id as k,name as v from rooms order by min;');
+echo FormCombo('assigned_room', array('' => 'n/a') + $dictionary, $staff->assigned_room, '');
+?></td>
                     </tr>
                 </table>
             </td>
@@ -188,7 +190,7 @@ TitleStaff($staff);
             <td colspan="2">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2" class="hac"><?php echo FormSubmit('process', $staff->id==0?'Add':'Update', 'formstaff'); ?></td>
+            <td colspan="2" class="hac"><?php echo FormSubmit('process', $staff->id == 0 ? 'Add' : 'Update', 'formstaff'); ?></td>
         </tr>
     </table>
 

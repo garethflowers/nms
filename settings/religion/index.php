@@ -27,14 +27,14 @@ TitleSettings(false, false, true);
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($data as $row) {  ?>
-        <tr>
-            <td><?php echo FormatText($row['name']); ?></td>
-            <td>
-                <a href="amend.php?i=<?php echo $row['id']; ?>"><img src="/lib/images/edit.png" alt="Edit" /></a>
-                <a href="delete.php?i=<?php echo $row['id']; ?>"><img src="/lib/images/delete.png" alt="Delete" /></a>
-            </td>
-        </tr>
+        <?php foreach ($data as $row) { ?>
+            <tr>
+                <td><?php echo FormatText($row['name']); ?></td>
+                <td>
+                    <a href="amend.php?i=<?php echo $row['id']; ?>"><img src="/lib/images/edit.png" alt="Edit" /></a>
+                    <a href="delete.php?i=<?php echo $row['id']; ?>"><img src="/lib/images/delete.png" alt="Delete" /></a>
+                </td>
+            </tr>
         <?php } ?>
     </tbody>
 </table>

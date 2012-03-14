@@ -16,12 +16,12 @@ $contact = new ChildContact($id);
 // form submission
 if (isset($_POST['process'])) {
     $contact->Delete();
-    header('location: index.php?i='.$child->id);
+    header('location: index.php?i=' . $child->id);
 }
 
 PageHeader();
 
-TitleChildContact($child,$contact);
+TitleChildContact($child, $contact);
 ?>
 
 <h2>Delete Contact Information</h2>
@@ -32,7 +32,7 @@ TitleChildContact($child,$contact);
 
 <p>&nbsp;</p>
 
-<form method="post" action="<?php echo PHP_SELF.'?i='.$child->id.'&amp;c='.$contact->id; ?>" id="formdelete">
+<form method="post" action="<?php echo PHP_SELF . '?i=' . $child->id . '&amp;c=' . $contact->id; ?>" id="formdelete">
 
     <div>
         <?php echo FormSubmit('process', 'Delete Contact', 'formdelete'); ?>
@@ -45,7 +45,7 @@ TitleChildContact($child,$contact);
 <p>&nbsp;</p>
 
 <ul>
-	<li><a href=".?i=<?php echo $child->id; ?>&amp;c=<?php echo $contact->id; ?>">View Contact details</a></li>
+    <li><a href=".?i=<?php echo $child->id; ?>&amp;c=<?php echo $contact->id; ?>">View Contact details</a></li>
 </ul>
 
 <?php PageFooter(); ?>

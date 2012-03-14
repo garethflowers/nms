@@ -17,22 +17,22 @@ $to = null;
 
 if (isset($_GET['f']) && IsDate($_GET['f'])) {
     list($day, $month, $year) = explode('-', $_GET['f']);
-    $from = date('d-m-Y', mktime(1,1,1,$month, GetFirstDayOfWeek($year, $month, $day), $year));
+    $from = date('d-m-Y', mktime(1, 1, 1, $month, GetFirstDayOfWeek($year, $month, $day), $year));
 } else {
     $day = date('d');
     $month = date('m');
     $year = date('Y');
-    $from = date('d-m-Y', mktime(1,1,1, $month, GetFirstDayOfWeek($year, $month, $day), $year));
+    $from = date('d-m-Y', mktime(1, 1, 1, $month, GetFirstDayOfWeek($year, $month, $day), $year));
 }
 
 if (isset($_GET['t']) && IsDate($_GET['t'])) {
     list($day, $month, $year) = explode('-', $_GET['t']);
-    $to = date('d-m-Y', mktime(1,1,1, $month, GetFirstDayOfWeek($year, $month, $day), $year));
+    $to = date('d-m-Y', mktime(1, 1, 1, $month, GetFirstDayOfWeek($year, $month, $day), $year));
 } else {
     $day = date('d');
     $month = date('m');
     $year = date('Y') + 1;
-    $to = date('d-m-Y', mktime(1,1,1, $month, GetFirstDayOfWeek($year, $month, $day), $year));
+    $to = date('d-m-Y', mktime(1, 1, 1, $month, GetFirstDayOfWeek($year, $month, $day), $year));
 }
 
 $query = 'select m.session,age_months(%s,m.session) as age';
@@ -51,12 +51,7 @@ from (select current_date+generate_series as session from generate_series((curre
 inner join rooms on rooms.min<=age_months(%s,m.session) and rooms.max>age_months(%s+5,m.session)
 ';
 
-$query = sprintf($query,
-    Db::SqlFormat($dob, 'date'),
-    Db::SqlFormat($from, 'date'),
-    Db::SqlFormat($to, 'date'),
-    Db::SqlFormat($dob, 'date'),
-    Db::SqlFormat($dob, 'date')
+$query = sprintf($query, Db::SqlFormat($dob, 'date'), Db::SqlFormat($from, 'date'), Db::SqlFormat($to, 'date'), Db::SqlFormat($dob, 'date'), Db::SqlFormat($dob, 'date')
 );
 $data = Db::GetDataArray($query);
 
@@ -123,26 +118,26 @@ TitleReports('New Child Session Query');
     </thead>
     <tbody>
         <?php foreach ($data as $row) { ?>
-        <tr>
-            <td><a href="week_numbers.php?d=<?php echo FormatDate($row['date']); ?>"><?php echo FormatDate($row['date']); ?></a></td>
-            <td><a href="week_names.php?d=<?php echo FormatDate($row['date']); ?>&amp;r=<?php echo FormatText($row['id']); ?>"><?php echo FormatText($row['name']); ?></a></td>
-             <td><?php echo FormatNumeric($row['age']); ?></td>
-               <?php
-                echo $mon_a ? '<td>'.FormatTotals($row['mon_a'] * -1, 0, true).'</td>' : '';
-                echo $mon_p ? '<td>'.FormatTotals($row['mon_p'] * -1, 0, true).'</td>' : '';
-                echo $tue_a ? '<td>'.FormatTotals($row['tue_a'] * -1, 0, true).'</td>' : '';
-                echo $tue_p ? '<td>'.FormatTotals($row['tue_p'] * -1, 0, true).'</td>' : '';
-                echo $wed_a ? '<td>'.FormatTotals($row['wed_a'] * -1, 0, true).'</td>' : '';
-                echo $wed_p ? '<td>'.FormatTotals($row['wed_p'] * -1, 0, true).'</td>' : '';
-                echo $thu_a ? '<td>'.FormatTotals($row['thu_a'] * -1, 0, true).'</td>' : '';
-                echo $thu_p ? '<td>'.FormatTotals($row['thu_p'] * -1, 0, true).'</td>' : '';
-                echo $fri_a ? '<td>'.FormatTotals($row['fri_a'] * -1, 0, true).'</td>' : '';
-                echo $fri_p ? '<td>'.FormatTotals($row['fri_p'] * -1, 0, true).'</td>' : '';
+            <tr>
+                <td><a href="week_numbers.php?d=<?php echo FormatDate($row['date']); ?>"><?php echo FormatDate($row['date']); ?></a></td>
+                <td><a href="week_names.php?d=<?php echo FormatDate($row['date']); ?>&amp;r=<?php echo FormatText($row['id']); ?>"><?php echo FormatText($row['name']); ?></a></td>
+                <td><?php echo FormatNumeric($row['age']); ?></td>
+                <?php
+                echo $mon_a ? '<td>' . FormatTotals($row['mon_a'] * -1, 0, true) . '</td>' : '';
+                echo $mon_p ? '<td>' . FormatTotals($row['mon_p'] * -1, 0, true) . '</td>' : '';
+                echo $tue_a ? '<td>' . FormatTotals($row['tue_a'] * -1, 0, true) . '</td>' : '';
+                echo $tue_p ? '<td>' . FormatTotals($row['tue_p'] * -1, 0, true) . '</td>' : '';
+                echo $wed_a ? '<td>' . FormatTotals($row['wed_a'] * -1, 0, true) . '</td>' : '';
+                echo $wed_p ? '<td>' . FormatTotals($row['wed_p'] * -1, 0, true) . '</td>' : '';
+                echo $thu_a ? '<td>' . FormatTotals($row['thu_a'] * -1, 0, true) . '</td>' : '';
+                echo $thu_p ? '<td>' . FormatTotals($row['thu_p'] * -1, 0, true) . '</td>' : '';
+                echo $fri_a ? '<td>' . FormatTotals($row['fri_a'] * -1, 0, true) . '</td>' : '';
+                echo $fri_p ? '<td>' . FormatTotals($row['fri_p'] * -1, 0, true) . '</td>' : '';
                 ?>
-        </tr>
+            </tr>
         <?php } ?>
     </tbody>
 </table>
 <?php echo JsBlock(JsSortingTable('ts1')); ?>
 
-	<?php PageFooter(); ?>
+<?php PageFooter(); ?>

@@ -12,7 +12,7 @@ $data = Db::GetDataArray($query);
 
 PageHeader();
 
-TitleReports('Birthdays (as of '.date('d-m-Y').')');
+TitleReports('Birthdays (as of ' . date('d-m-Y') . ')');
 ?>
 
 <p>&nbsp;</p>
@@ -27,11 +27,11 @@ TitleReports('Birthdays (as of '.date('d-m-Y').')');
     </thead>
     <tbody>
         <?php foreach ($data as $row) { ?>
-        <tr>
-            <td><a href="/child/view.php?i=<?php echo $row['id']; ?>"><?php echo strtoupper($row['surname']).', '.$row['forename']; ?></a></td>
-            <td><?php echo floor($row['age']/12); ?></td>
-            <td><?php echo FormatDate($row['dob'], 'jS F, Y'); ?></td>
-        </tr>
+            <tr>
+                <td><a href="/child/view.php?i=<?php echo $row['id']; ?>"><?php echo strtoupper($row['surname']) . ', ' . $row['forename']; ?></a></td>
+                <td><?php echo floor($row['age'] / 12); ?></td>
+                <td><?php echo FormatDate($row['dob'], 'jS F, Y'); ?></td>
+            </tr>
         <?php } ?>
     </tbody>
 </table>

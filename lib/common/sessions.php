@@ -1,7 +1,9 @@
 <?php
+
 /*
  * Gets the number of children in the specified session
  */
+
 function SessionNumbers($date, $session, $room) {
     $query = 'select session_numbers';
     $query .= '(' . Db::SqlFormat($date, 'date');
@@ -11,10 +13,10 @@ function SessionNumbers($date, $session, $room) {
     return Db::GetScalar($query);
 }
 
-
 /*
  * Gets a list of children in the specified session
  */
+
 function SessionNames($date, $session, $room, $total) {
     $count = 0;
 
@@ -27,7 +29,7 @@ function SessionNames($date, $session, $room, $total) {
 
     echo '<table class="results">';
     echo '<tr>';
-    echo '<th>'.FormatDate($date, 'l').' '.FormatSession($session).'</th>';
+    echo '<th>' . FormatDate($date, 'l') . ' ' . FormatSession($session) . '</th>';
     echo '</tr>';
 
     foreach ($data as $row) {
@@ -38,7 +40,7 @@ function SessionNames($date, $session, $room, $total) {
         } else {
             echo '<tr class="blue">';
         }
-        echo '<td class="nowrap hac">'.$row['age'].' '.$row['name'].'</td>';
+        echo '<td class="nowrap hac">' . $row['age'] . ' ' . $row['name'] . '</td>';
         echo '</tr>';
     }
 
@@ -49,16 +51,17 @@ function SessionNames($date, $session, $room, $total) {
     }
 
     echo '<tr>';
-    echo '<td class="hac"><strong>'.$count.'</strong></td>';
+    echo '<td class="hac"><strong>' . $count . '</strong></td>';
     echo '</tr>';
     echo '</table>';
 }
 
-
 /*
  * Get the first day of the week as an offset of todays date
  */
+
 function GetFirstDayOfWeek($year, $month, $day) {
-    return  $day - (intval(date('N', mktime(0,0,0,$month,$day,$year))) - 1);
+    return $day - (intval(date('N', mktime(0, 0, 0, $month, $day, $year))) - 1);
 }
+
 ?>

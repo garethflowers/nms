@@ -12,11 +12,10 @@ $nationality->id = isset($_GET['i']) && is_numeric($_GET['i']) ? intval($_GET['i
 if (isset($_POST['process'])) {
     $nationality->Update($_POST);
     $result = $nationality->Save();
-    if (is_array($result) && count($result)==0) {
-        header('location: index.php?i='.$nationality->id);
+    if (is_array($result) && count($result) == 0) {
+        header('location: index.php?i=' . $nationality->id);
     }
-}
-elseif ($nationality->id != 0) {
+} elseif ($nationality->id != 0) {
     $nationality->Load($nationality->id);
 }
 
@@ -25,9 +24,9 @@ PageHeader();
 TitleSettings(false, false, false, true);
 ?>
 
-<h2><?php echo $nationality->id==0?'Add':'Edit'; ?> Nationality</h2>
+<h2><?php echo $nationality->id == 0 ? 'Add' : 'Edit'; ?> Nationality</h2>
 
-<form action="<?php echo $nationality->id==0?PHP_SELF:PHP_SELF.'?i='.$nationality->id; ?>" method="post" id="formamend">
+<form action="<?php echo $nationality->id == 0 ? PHP_SELF : PHP_SELF . '?i=' . $nationality->id; ?>" method="post" id="formamend">
 
     <table class="details">
         <tr>
@@ -43,7 +42,7 @@ TitleSettings(false, false, false, true);
             <td colspan="2">&nbsp;</td>
         </tr>
         <tr>
-            <td colspan="2" class="hac"><?php echo FormSubmit('process', $nationality->id==0?'Add':'Update', 'formamend'); ?></td>
+            <td colspan="2" class="hac"><?php echo FormSubmit('process', $nationality->id == 0 ? 'Add' : 'Update', 'formamend'); ?></td>
         </tr>
     </table>
 

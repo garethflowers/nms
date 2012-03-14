@@ -29,7 +29,7 @@ TitleSettings(true, false);
 
 <p>&nbsp;</p>
 
-<form method="post" action="<?php echo PHP_SELF.'?i='.$dates->id; ?>" id="formdelete">
+<form method="post" action="<?php echo PHP_SELF . '?i=' . $dates->id; ?>" id="formdelete">
 
     <div>
         <?php echo FormSubmit('process', 'Delete Date', 'formdelete'); ?>

@@ -1,4 +1,5 @@
 <?php
+
 require_once('../../lib/base.php');
 
 $query = 'reindex database ' . $config['database'] . ';';

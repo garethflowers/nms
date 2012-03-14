@@ -3,14 +3,14 @@ require_once('lib/base.php');
 
 $error = false;
 
-if (isset($_POST['process']) && $_POST['process']=='Login') {
-    $_SESSION['user'] = new User($_POST['username'],$_POST['password']);
+if (isset($_POST['process']) && $_POST['process'] == 'Login') {
+    $_SESSION['user'] = new User($_POST['username'], $_POST['password']);
     if (LoginCheck()) {
         header('location: /index.php');
     } else {
-       $error = true;
+        $error = true;
     }
-} else if (isset($_GET['o']) && $_GET['o']=='t') {
+} else if (isset($_GET['o']) && $_GET['o'] == 't') {
     LogOut();
 }
 
@@ -25,7 +25,7 @@ PageHeader();
 
 <?php if ($error) { ?>
 
-<p class="error">You have entered incorrect details. Please try again.</p>
+    <p class="error">You have entered incorrect details. Please try again.</p>
 
 <?php } ?>
 

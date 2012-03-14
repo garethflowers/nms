@@ -1,8 +1,8 @@
 <?php
+
 class Staff {
 
     public $id = 0;
-
     public $surname = null;
     public $forename = null;
     public $address = null;
@@ -30,7 +30,7 @@ class Staff {
     public $notes = null;
 
     public function __construct($id = 0) {
-        if (!empty($id) && is_numeric($id) && intval($id)!=0) {
+        if (!empty($id) && is_numeric($id) && intval($id) != 0) {
             $this->Load(intval($id));
         }
     }
@@ -40,64 +40,64 @@ class Staff {
             $this->id = intval($values['id']);
         }
         if (array_key_exists('forename', $values)) {
-            $this->forename = (string)$values['forename'];
+            $this->forename = (string) $values['forename'];
         }
         if (array_key_exists('surname', $values)) {
-            $this->surname = (string)$values['surname'];
+            $this->surname = (string) $values['surname'];
         }
         if (array_key_exists('address', $values)) {
-            $this->address = (string)$values['address'];
+            $this->address = (string) $values['address'];
         }
         if (array_key_exists('city', $values)) {
-            $this->city = (string)$values['city'];
+            $this->city = (string) $values['city'];
         }
         if (array_key_exists('county', $values)) {
-            $this->county = (string)$values['county'];
+            $this->county = (string) $values['county'];
         }
         if (array_key_exists('postcode', $values)) {
-            $this->postcode = (string)strtoupper($values['postcode']);
+            $this->postcode = (string) strtoupper($values['postcode']);
         }
         if (array_key_exists('telephone', $values)) {
-            $this->telephone = (string)$values['telephone'];
+            $this->telephone = (string) $values['telephone'];
         }
         if (array_key_exists('mobile', $values)) {
-            $this->mobile = (string)$values['mobile'];
+            $this->mobile = (string) $values['mobile'];
         }
         if (array_key_exists('email', $values)) {
-            $this->email = (string)$values['email'];
+            $this->email = (string) $values['email'];
         }
         if (array_key_exists('dob', $values) && IsDate($values['dob'])) {
-            $this->dob = (string)$values['dob'];
+            $this->dob = (string) $values['dob'];
         }
         if (array_key_exists('national_insurance', $values)) {
-            $this->national_insurance = (string)$values['national_insurance'];
+            $this->national_insurance = (string) $values['national_insurance'];
         }
         if (array_key_exists('next_of_kin', $values)) {
-            $this->next_of_kin = (string)$values['next_of_kin'];
+            $this->next_of_kin = (string) $values['next_of_kin'];
         }
         if (array_key_exists('vehicle_registration', $values)) {
-            $this->vehicle_registration = (string)$values['vehicle_registration'];
+            $this->vehicle_registration = (string) $values['vehicle_registration'];
         }
         if (array_key_exists('doctor', $values)) {
-            $this->doctor = (string)$values['doctor'];
+            $this->doctor = (string) $values['doctor'];
         }
         if (array_key_exists('doctor_address', $values)) {
-            $this->doctor_address = (string)$values['doctor_address'];
+            $this->doctor_address = (string) $values['doctor_address'];
         }
         if (array_key_exists('bank_name', $values)) {
-            $this->bank_name = (string)$values['bank_name'];
+            $this->bank_name = (string) $values['bank_name'];
         }
         if (array_key_exists('bank_account', $values)) {
-            $this->bank_account = (string)$values['bank_account'];
+            $this->bank_account = (string) $values['bank_account'];
         }
         if (array_key_exists('bank_sort_code', $values)) {
-            $this->bank_sort_code = (string)$values['bank_sort_code'];
+            $this->bank_sort_code = (string) $values['bank_sort_code'];
         }
         if (array_key_exists('username', $values)) {
-            $this->username = (string)$values['username'];
+            $this->username = (string) $values['username'];
         }
         if (array_key_exists('password', $values)) {
-            $this->password = (string)$values['password'];
+            $this->password = (string) $values['password'];
         }
         if (array_key_exists('userlevel', $values) && is_numeric($values['userlevel'])) {
             $this->userlevel = intval($values['userlevel']);
@@ -106,13 +106,13 @@ class Staff {
             $this->assigned_room = intval($values['assigned_room']);
         }
         if (array_key_exists('start', $values) && IsDate($values['start'])) {
-            $this->start = (string)$values['start'];
+            $this->start = (string) $values['start'];
         }
         if (array_key_exists('finish', $values) && IsDate($values['finish'])) {
-            $this->finish = (string)$values['finish'];
+            $this->finish = (string) $values['finish'];
         }
         if (array_key_exists('notes', $values)) {
-            $this->notes = (string)$values['notes'];
+            $this->notes = (string) $values['notes'];
         }
     }
 
@@ -137,7 +137,6 @@ class Staff {
 
         return $result;
     }
-
 
     public function Save() {
         $result = $this->Validate();
@@ -169,12 +168,11 @@ class Staff {
                 $query .= ',assigned_room=' . Db::SqlFormat($this->assigned_room, 'int');
                 $query .= ',"start"=' . Db::SqlFormat($this->start, 'date');
                 $query .= ',finish=' . Db::SqlFormat($this->finish, 'date');
-                $query .= ',notes=' . Db::SqlFormat($this->notes,'string');
+                $query .= ',notes=' . Db::SqlFormat($this->notes, 'string');
                 $query .= ' where id=' . Db::SqlFormat($this->id, 'int');
                 $query .= ';';
                 Db::ExecuteQuery($query);
-            }
-            else {
+            } else {
                 $query = 'insert into staff (surname,forename,address,city,county,postcode,telephone,mobile,email,dob,national_insurance,next_of_kin,doctor,doctor_address,vehicle_registration,bank_name,bank_account,bank_sort_code,username,"password",userlevel,assigned_room,"start",finish,notes)';
                 $query .= ' values (' . Db::SqlFormat($this->surname, 'string');
                 $query .= ',' . Db::SqlFormat($this->forename, 'string');
@@ -200,7 +198,7 @@ class Staff {
                 $query .= ',' . Db::SqlFormat($this->assigned_room, 'int');
                 $query .= ',' . Db::SqlFormat($this->start, 'date');
                 $query .= ',' . Db::SqlFormat($this->finish, 'date');
-                $query .= ',' . Db::SqlFormat($this->notes,'string');
+                $query .= ',' . Db::SqlFormat($this->notes, 'string');
                 $query .= ');';
                 $query .= 'select currval(\'staff_id_seq\') as currval;';
                 $data = Db::GetData($query, false);
@@ -218,7 +216,7 @@ class Staff {
             $query .= ' where id=' . Db::SqlFormat($id, 'int');
             $query .= ' limit 1;';
             $data = Db::GetData($query);
-            if (count($data)>0) {
+            if (count($data) > 0) {
                 $this->Update($data);
             }
         }
@@ -233,5 +231,7 @@ class Staff {
         $query .= ';';
         Db::ExecuteQuery($query);
     }
+
 }
+
 ?>

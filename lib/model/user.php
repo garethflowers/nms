@@ -1,4 +1,5 @@
 <?php
+
 class User {
 
     private $id = 0;
@@ -10,12 +11,12 @@ class User {
     public function __construct($username, $password) {
         $query = 'select username,password,forename,surname,id,userlevel';
         $query .= ' from staff';
-        $query .= ' where upper(username)=' . Db::SqlFormat(strtoupper($username),'string');
-        $query .= ' and password=' . Db::SqlFormat($password,'string');
+        $query .= ' where upper(username)=' . Db::SqlFormat(strtoupper($username), 'string');
+        $query .= ' and password=' . Db::SqlFormat($password, 'string');
         $query .= ' limit 1;';
         $data = Db::GetData($query);
 
-        if (count($data)>0) {
+        if (count($data) > 0) {
             $this->username = $data['username'];
             $this->password = $data['password'];
             $this->name = $data['forename'] . ' ' . $data['surname'];
@@ -39,5 +40,7 @@ class User {
     public function GetName() {
         return $this->name;
     }
+
 }
+
 ?>

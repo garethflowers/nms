@@ -55,8 +55,8 @@ TitleReports();
                     <form action="session.php" method="get" id="formreportsession">
                         <div>
                             <?php echo FormDate('d0', $date, ''); ?>
-                            <?php echo FormCombo('r', array('0'=>'All Rooms')+$dictionary_room, 0, ''); ?>
-                            <?php echo FormCombo('s', array('D'=>'Day','A'=>'AM','P'=>'PM'), 'D', ''); ?>
+                            <?php echo FormCombo('r', array('0' => 'All Rooms') + $dictionary_room, 0, ''); ?>
+                            <?php echo FormCombo('s', array('D' => 'Day', 'A' => 'AM', 'P' => 'PM'), 'D', ''); ?>
                             <?php echo FormSubmit('process3', 'View', 'formreportsession'); ?>
                         </div>
                     </form>
@@ -66,7 +66,7 @@ TitleReports();
                     <form action="week_names.php" method="get" id="formreportweeknames">
                         <div>
                             <?php echo FormDate('d1', $date, ''); ?>
-                            <?php echo FormCombo('r', array('0'=>'All Rooms')+$dictionary_room, 0, ''); ?>
+                            <?php echo FormCombo('r', array('0' => 'All Rooms') + $dictionary_room, 0, ''); ?>
                             <?php echo FormSubmit('process4', 'View', 'formreportweeknames'); ?>
                         </div>
                     </form>
@@ -85,7 +85,7 @@ TitleReports();
                     <form action="week_register.php" method="get" id="formreportregister">
                         <div>
                             <?php echo FormDate('d3', $date, ''); ?>
-                            <?php echo FormCombo('r', array('0'=>'All Rooms')+$dictionary_room, 0, ''); ?>
+                            <?php echo FormCombo('r', array('0' => 'All Rooms') + $dictionary_room, 0, ''); ?>
                             <?php echo FormSubmit('process6', 'View', 'formreportregister'); ?>
                         </div>
                     </form>
@@ -121,32 +121,32 @@ TitleReports();
                     </tr>
                     <tr>
                         <th>Finish Date :</th>
-                        <td><?php echo FormDate('t', date('d-m-Y', mktime(1,1,1,date('m'),date('d'),date('Y')+1)), ''); ?></td>
+                        <td><?php echo FormDate('t', date('d-m-Y', mktime(1, 1, 1, date('m'), date('d'), date('Y') + 1)), ''); ?></td>
                     </tr>
                     <tr>
                         <th>Mon :</th>
                         <td><?php echo FormCheck('mon_a', false, 'AM', ''); ?>
-                        <?php echo FormCheck('mon_p', false, 'PM', ''); ?></td>
+                            <?php echo FormCheck('mon_p', false, 'PM', ''); ?></td>
                     </tr>
                     <tr>
                         <th>Tue :</th>
                         <td><?php echo FormCheck('tue_a', false, 'AM', ''); ?>
-                        <?php echo FormCheck('tue_p', false, 'PM', ''); ?></td>
+                            <?php echo FormCheck('tue_p', false, 'PM', ''); ?></td>
                     </tr>
                     <tr>
                         <th>Wed :</th>
                         <td><?php echo FormCheck('wed_a', false, 'AM', ''); ?>
-                        <?php echo FormCheck('wed_p', false, 'PM', ''); ?></td>
+                            <?php echo FormCheck('wed_p', false, 'PM', ''); ?></td>
                     </tr>
                     <tr>
                         <th>Thu :</th>
                         <td><?php echo FormCheck('thu_a', false, 'AM', ''); ?>
-                        <?php echo FormCheck('thu_p', false, 'PM', ''); ?></td>
+                            <?php echo FormCheck('thu_p', false, 'PM', ''); ?></td>
                     </tr>
                     <tr>
                         <th>Fri :</th>
                         <td><?php echo FormCheck('fri_a', false, 'AM', ''); ?>
-                        <?php echo FormCheck('fri_p', false, 'PM', ''); ?></td>
+                            <?php echo FormCheck('fri_p', false, 'PM', ''); ?></td>
                     </tr>
                     <tr>
                         <td>&nbsp;</td>

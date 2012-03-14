@@ -3,28 +3,29 @@ require_once('lib/base.php');
 
 PageHeader();
 
-if (!isset($_GET['id'])) { ?>
+if (!isset($_GET['id'])) {
+    ?>
 
-<h1>An Unknown Error Has Occurred On This Site</h1>
-	
-<p>&nbsp;</p>
+    <h1>An Unknown Error Has Occurred On This Site</h1>
 
-<p>Some unknown problem has prevented you from accessing the page you were after. This
-	problem has been logged with the administrator. Please try again at a later date.</p>
+    <p>&nbsp;</p>
 
-<?php } elseif($_GET['id']==404) { ?>
+    <p>Some unknown problem has prevented you from accessing the page you were after. This
+        problem has been logged with the administrator. Please try again at a later date.</p>
 
-<h1>File Not Found</h1>
+<?php } elseif ($_GET['id'] == 404) { ?>
 
-<?php } elseif ($_GET['id']==1) { ?>
+    <h1>File Not Found</h1>
 
-<h1>Information Has Been Lost</h1>
+<?php } elseif ($_GET['id'] == 1) { ?>
 
-<p>&nbsp;</p>
+    <h1>Information Has Been Lost</h1>
 
-<p>For some unknown reason some information has been lost whilst navigating through the database.</p>
+    <p>&nbsp;</p>
 
-<p>Please try again from the starting screen to get back to where you were.</p>
+    <p>For some unknown reason some information has been lost whilst navigating through the database.</p>
+
+    <p>Please try again from the starting screen to get back to where you were.</p>
 
 <?php } ?>
 

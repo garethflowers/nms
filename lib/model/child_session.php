@@ -1,8 +1,8 @@
 <?php
+
 class ChildSession {
 
     public $id = 0;
-
     public $child_id = null;
     public $session = null;
     public $date = null;
@@ -24,13 +24,13 @@ class ChildSession {
             $this->child_id = intval($values['child_id']);
         }
         if (array_key_exists('session', $values)) {
-            $this->session = (string)$values['session'];
+            $this->session = (string) $values['session'];
         }
         if (array_key_exists('date', $values) && IsDate($values['date'])) {
-            $this->date = (string)$values['date'];
+            $this->date = (string) $values['date'];
         }
         if (array_key_exists('date_till', $values) && IsDate($values['date_till'])) {
-            $this->date_till = (string)$values['date_till'];
+            $this->date_till = (string) $values['date_till'];
         }
         if (array_key_exists('extra', $values)) {
             $this->extra = IsBool($values['extra']);
@@ -59,33 +59,31 @@ class ChildSession {
         return $result;
     }
 
-
     public function Save() {
         $result = $this->Validate();
 
         if (count($result) == 0) {
             if ($this->id > 0) {
                 $query = 'update child_session';
-                $query .= ' set "session"=' . Db::SqlFormat($this->session,'string');
-                $query .= ',date=' . Db::SqlFormat($this->date,'date');
-                $query .= ',date_till=' . Db::SqlFormat($this->date_till,'date');
-                $query .= ',exclude=' . Db::SqlFormat($this->exclude,'bool');
-                $query .= ',extra=' . Db::SqlFormat($this->extra,'bool');
-                $query .= ' where id=' . Db::SqlFormat($this->id,'int');
+                $query .= ' set "session"=' . Db::SqlFormat($this->session, 'string');
+                $query .= ',date=' . Db::SqlFormat($this->date, 'date');
+                $query .= ',date_till=' . Db::SqlFormat($this->date_till, 'date');
+                $query .= ',exclude=' . Db::SqlFormat($this->exclude, 'bool');
+                $query .= ',extra=' . Db::SqlFormat($this->extra, 'bool');
+                $query .= ' where id=' . Db::SqlFormat($this->id, 'int');
                 $query .= ';';
                 Db::ExecuteQuery($query);
-            }
-            else {
+            } else {
                 $query = 'insert into child_session (child_id,"session",date,date_till,exclude,extra)';
-                $query .= ' values (' . Db::SqlFormat($this->child_id,'int');
-                $query .= ',' . Db::SqlFormat($this->session,'string');
-                $query .= ',' . Db::SqlFormat($this->date,'date');
-                $query .= ',' . Db::SqlFormat($this->date_till,'date');
-                $query .= ',' . Db::SqlFormat($this->exclude,'bool');
-                $query .= ',' . Db::SqlFormat($this->extra,'bool');
+                $query .= ' values (' . Db::SqlFormat($this->child_id, 'int');
+                $query .= ',' . Db::SqlFormat($this->session, 'string');
+                $query .= ',' . Db::SqlFormat($this->date, 'date');
+                $query .= ',' . Db::SqlFormat($this->date_till, 'date');
+                $query .= ',' . Db::SqlFormat($this->exclude, 'bool');
+                $query .= ',' . Db::SqlFormat($this->extra, 'bool');
                 $query .= ');';
                 $query .= 'select currval(\'child_session_id_seq\') as currval;';
-                $data = Db::GetData($query,false);
+                $data = Db::GetData($query, false);
                 $this->id = intval($data['currval']);
             }
         }
@@ -97,10 +95,10 @@ class ChildSession {
         if (is_numeric($id)) {
             $query = 'select id,child_id,"session",format_date(date) as date,format_date(date_till) as date_till,exclude,extra';
             $query .= ' from child_session';
-            $query .= ' where id=' . Db::SqlFormat($id,'int');
+            $query .= ' where id=' . Db::SqlFormat($id, 'int');
             $query .= ' limit 1;';
             $data = Db::GetData($query);
-            if (count($data)>0) {
+            if (count($data) > 0) {
                 $this->Update($data);
             }
         }
@@ -112,5 +110,7 @@ class ChildSession {
         $query = sprintf($query, $this->id);
         Db::ExecuteQuery($query);
     }
+
 }
+
 ?>

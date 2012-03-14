@@ -1,4 +1,5 @@
 <?php
+
 function GetDictionaryMonth() {
     $dictionary = array(
         1 => 'January',
@@ -31,8 +32,9 @@ function GetDictionaryYear() {
 
 function GetExcludedRooms() {
     return array(
-    't' => 'Included Rooms',
-    'f' => 'Excluded Rooms Only'
+        't' => 'Included Rooms',
+        'f' => 'Excluded Rooms Only'
     );
 }
+
 ?>

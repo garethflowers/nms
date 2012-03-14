@@ -16,12 +16,12 @@ $contact = new StaffContact($id);
 // form submission
 if (isset($_POST['process'])) {
     $contact->Delete();
-    header('location: index.php?i='.$staff->id);
+    header('location: index.php?i=' . $staff->id);
 }
 
 PageHeader();
 
-TitleStaffContact($staff,$contact);
+TitleStaffContact($staff, $contact);
 ?>
 
 <h2>Delete Contact Information</h2>
@@ -32,7 +32,7 @@ TitleStaffContact($staff,$contact);
 
 <p>&nbsp;</p>
 
-<form method="post" action="<?php echo PHP_SELF.'?i='.$staff->id.'&amp;c='.$contact->id; ?>" id="formdelete">
+<form method="post" action="<?php echo PHP_SELF . '?i=' . $staff->id . '&amp;c=' . $contact->id; ?>" id="formdelete">
 
     <div>
         <?php echo FormSubmit('process', 'Delete Contact', 'formdelete'); ?>
@@ -45,7 +45,7 @@ TitleStaffContact($staff,$contact);
 <p>&nbsp;</p>
 
 <ul>
-	<li><a href=".?i=<?php echo $staff->id; ?>&amp;c=<?php echo $contact->id; ?>">View Contact details</a></li>
+    <li><a href=".?i=<?php echo $staff->id; ?>&amp;c=<?php echo $contact->id; ?>">View Contact details</a></li>
 </ul>
 
 <?php PageFooter(); ?>

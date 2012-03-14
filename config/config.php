@@ -1,5 +1,6 @@
 <?php
-/*****************
+
+/* * ***************
  * NMS v0.2
  */
 
@@ -7,8 +8,8 @@
 /*
  * database connection
  */
-$config['host']     = 'localhost'; // host name or ip
-$config['port']     = '5432'; // host port
+$config['host'] = 'localhost'; // host name or ip
+$config['port'] = '5432'; // host port
 $config['database'] = 'nms'; // database name
 $config['username'] = 'postgres'; // database username
 $config['password'] = 'postgres'; // database password

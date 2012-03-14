@@ -31,25 +31,27 @@ $query .= ' from child';
 $query .= ' where nationality=' . Db::SqlFormat($nationality->id, 'int');
 $query .= ';';
 $data = Db::GetScalar($query);
-if (intval($data['count']) > 0) { ?>
+if (intval($data['count']) > 0) {
+    ?>
 
-<p>This nationality cannot be deleted because it is used for <?php echo intval($data['count']); ?> children.</p>
+    <p>This nationality cannot be deleted because it is used for <?php echo intval($data['count']); ?> children.</p>
 
 <?php } else { ?>
 
-<p>Would you like to delete nationality details for '<?php echo $nationality->name; ?>'?</p>
+    <p>Would you like to delete nationality details for '<?php echo $nationality->name; ?>'?</p>
 
-<p>&nbsp;</p>
+    <p>&nbsp;</p>
 
-<form method="post" action="<?php echo PHP_SELF.'?i='.$nationality->id; ?>" id="formdelete">
+    <form method="post" action="<?php echo PHP_SELF . '?i=' . $nationality->id; ?>" id="formdelete">
 
-    <div>
+        <div>
             <?php echo FormSubmit('process', 'Delete Nationality', 'formdelete'); ?>
-    </div>
+        </div>
 
-</form>
+    </form>
 
-<?php } 
+    <?php
+}
 
 PageFooter();
 ?>
