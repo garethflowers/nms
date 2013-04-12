@@ -1,6 +1,4 @@
-# nms
-
-Nursery Management System
+# Nursery Management System
 
 ## Requirements
 
