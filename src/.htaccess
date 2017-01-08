@@ -15,7 +15,7 @@ DirectoryIndex /index.php
 # default character set
 AddDefaultCharset utf-8
 
-# applciation handlers
+# application handlers
 AddHandler application/x-httpd-php .php .css
 ContentDigest On
 
