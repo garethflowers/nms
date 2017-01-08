@@ -1,0 +1,10 @@
+FROM php:5-alpine
+
+RUN apk add --no-cache postgresql-dev libmcrypt-dev && \
+    docker-php-ext-install pgsql
+
+COPY [ "./src", "/usr/src/app" ]
+
+WORKDIR /usr/src/app
+
+CMD [ "php", "-S", "0.0.0.0:80" ]
