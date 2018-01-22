@@ -1,0 +1,19 @@
+{
+    "name": "garethflowers/nms",
+    "description": "Nursery Management System",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gareth Flowers",
+            "email": "garethflowers@me.com"
+        }
+    ],
+    "require": {},
+    "scripts": {
+        "docker:build": "docker build -t nms ."
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.2"
+    }
+}
