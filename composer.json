@@ -9,7 +9,6 @@
             "email": "garethflowers@me.com"
         }
     ],
-    "require": {},
     "scripts": {
         "docker:build": "docker build -t nms .",
         "test": "phpunit --bootstrap vendor/autoload.php tests"
