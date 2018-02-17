@@ -1,4 +1,4 @@
-FROM php:5-alpine
+FROM php:7.2-alpine
 
 RUN apk add --no-cache postgresql-dev libmcrypt-dev && \
     docker-php-ext-install pgsql
