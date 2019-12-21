@@ -5,8 +5,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Gareth Flowers",
-            "email": "garethflowers@me.com"
+            "homepage": "https://garethflowers.dev",
+            "name": "Gareth Flowers"
         }
     ],
     "scripts": {
