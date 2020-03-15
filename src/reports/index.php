@@ -30,7 +30,7 @@ TitleReports();
 
             <ul>
                 <li><strong>Monthly Numbers</strong>
-                    <form action="month_numbers.php" method="get" id="formreportmonthnumbers">
+                    <form action="/reports/month_numbers.php" method="get" id="formreportmonthnumbers">
                         <div>
                             <?php echo FormCombo('m', $dictionary_month, $month, ''); ?>
                             <?php echo FormCombo('y', $dictionary_year, $year, ''); ?>
@@ -41,7 +41,7 @@ TitleReports();
                     <br />
                 </li>
                 <li><strong>Monthly Numbers Left</strong>
-                    <form action="month_numbers_left.php" method="get" id="formreportmonthnumbersleft">
+                    <form action="/reports/month_numbers_left.php" method="get" id="formreportmonthnumbersleft">
                         <div>
                             <?php echo FormCombo('m', $dictionary_month, $month, ''); ?>
                             <?php echo FormCombo('y', $dictionary_year, $year, ''); ?>
@@ -52,7 +52,7 @@ TitleReports();
                     <br />
                 </li>
                 <li><strong>Session</strong>
-                    <form action="session.php" method="get" id="formreportsession">
+                    <form action="/reports/session.php" method="get" id="formreportsession">
                         <div>
                             <?php echo FormDate('d0', $date, ''); ?>
                             <?php echo FormCombo('r', array('0' => 'All Rooms') + $dictionary_room, 0, ''); ?>
@@ -63,7 +63,7 @@ TitleReports();
                     <br />
                 </li>
                 <li><strong>Week Names</strong>
-                    <form action="week_names.php" method="get" id="formreportweeknames">
+                    <form action="/reports/week_names.php" method="get" id="formreportweeknames">
                         <div>
                             <?php echo FormDate('d1', $date, ''); ?>
                             <?php echo FormCombo('r', array('0' => 'All Rooms') + $dictionary_room, 0, ''); ?>
@@ -73,7 +73,7 @@ TitleReports();
                     <br />
                 </li>
                 <li><strong>Week Numbers</strong>
-                    <form action="week_numbers.php" method="get" id="formreportweeknumbers">
+                    <form action="/reports/week_numbers.php" method="get" id="formreportweeknumbers">
                         <div>
                             <?php echo FormDate('d2', $date, ''); ?>
                             <?php echo FormSubmit('process5', 'View', 'formreportweeknumbers'); ?>
@@ -82,7 +82,7 @@ TitleReports();
                     <br />
                 </li>
                 <li><strong>Weekly Register</strong>
-                    <form action="week_register.php" method="get" id="formreportregister">
+                    <form action="/reports/week_register.php" method="get" id="formreportregister">
                         <div>
                             <?php echo FormDate('d3', $date, ''); ?>
                             <?php echo FormCombo('r', array('0' => 'All Rooms') + $dictionary_room, 0, ''); ?>
@@ -100,9 +100,9 @@ TitleReports();
             <h2>General Reports</h2>
 
             <ul>
-                <li><a href="birthdays.php">Birthdays</a></li>
-                <li><a href="birthdays_month.php">Birthdays by Month</a></li>
-                <li><a href="child_man_assigned.php">Children Manual Assigned to a Room</a></li>
+                <li><a href="/reports/birthdays.php">Birthdays</a></li>
+                <li><a href="/reports/birthdays_month.php">Birthdays by Month</a></li>
+                <li><a href="/reports/child_man_assigned.php">Children Manual Assigned to a Room</a></li>
             </ul>
 
             <p>&nbsp;</p>

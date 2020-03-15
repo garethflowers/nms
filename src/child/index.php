@@ -42,7 +42,7 @@ if ($mode == 'n') {
 echo '</h2>';
 
 if (count($data) > 0) {
-    ?>
+?>
 
     <table class="results" id="ts1">
         <thead>
@@ -64,8 +64,8 @@ if (count($data) > 0) {
         <tbody>
             <?php foreach ($data as $row) { ?>
                 <tr>
-                    <td class="har"><strong><a href="view.php?i=<?php echo $row['id']; ?>"><?php echo FormatText(strtoupper($row['surname'])); ?></a></strong></td>
-                    <td class="hal"><a href="view.php?i=<?php echo $row['id']; ?>"><?php echo FormatText($row['forename']); ?></a></td>
+                    <td class="har"><strong><a href="/child/view.php?i=<?php echo $row['id']; ?>"><?php echo FormatText(strtoupper($row['surname'])); ?></a></strong></td>
+                    <td class="hal"><a href="/child/view.php?i=<?php echo $row['id']; ?>"><?php echo FormatText($row['forename']); ?></a></td>
                     <td><?php echo FormatDate($row['dob']); ?></td>
                     <td><?php echo $months = $row['age']; ?></td>
                     <td><?php echo floor($months / 12) . ' yrs ' . ($months % 12) . ' mths'; ?></td>
@@ -75,10 +75,10 @@ if (count($data) > 0) {
                     <?php } elseif ($mode == 'o') { ?>
                         <td><?php echo FormatDate($row['finish']); ?></td>
                     <?php } ?>
-                    <td><a href="view.php?i=<?php echo intval($row['id']); ?>"><img src="/lib/images/view.png" alt="View" /></a>
+                    <td><a href="/child/view.php?i=<?php echo intval($row['id']); ?>"><img src="/lib/images/view.png" alt="View" /></a>
                         <?php if (LoginLevel(2)) { ?>
-                            <a href="amend.php?i=<?php echo intval($row['id']); ?>"><img src="/lib/images/edit.png" alt="Edit" /></a>
-                            <a href="delete.php?i=<?php echo intval($row['id']); ?>"><img src="/lib/images/delete.png" alt="Delete" /></a>
+                            <a href="/child/amend.php?i=<?php echo intval($row['id']); ?>"><img src="/lib/images/edit.png" alt="Edit" /></a>
+                            <a href="/child/delete.php?i=<?php echo intval($row['id']); ?>"><img src="/lib/images/delete.png" alt="Delete" /></a>
                         <?php } ?>
                     </td>
                 </tr>
@@ -87,7 +87,7 @@ if (count($data) > 0) {
     </table>
     <?php echo JsBlock(JsSortingTable('ts1')); ?>
 
-    <?php
+<?php
 } else {
 
     echo '<p>No child information is currently available.</p>';
