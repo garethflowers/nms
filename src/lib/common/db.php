@@ -20,7 +20,7 @@ class Db {
      * run a postgres function and return as an array
      */
 
-    public function ExecuteQuery($query, $redirect = true) {
+    public static function ExecuteQuery($query, $redirect = true) {
         $result = pg_query($query);
         if (!$result) {
             if ($redirect) {
@@ -38,7 +38,7 @@ class Db {
      * run a postgres function and return as an array
      */
 
-    public function GetData($query, $redirect = true) {
+    public static function GetData($query, $redirect = true) {
         $result = pg_query($query);
         if (!$result) {
             if ($redirect) {
@@ -63,7 +63,7 @@ class Db {
      * run a postgres query and return it as a multidimensional array
      */
 
-    public function GetDataArray($query, $redirect = true) {
+    public static function GetDataArray($query, $redirect = true) {
         $result = pg_query($query);
         if (!$result) {
             if ($redirect) {
@@ -93,7 +93,7 @@ class Db {
      * run a postgres function and return a single result
      */
 
-    public function GetScalar($query, $redirect = true) {
+    public static function GetScalar($query, $redirect = true) {
         $result = Db::GetData($query, $redirect);
         if (is_array($result)) {
             reset($result);
@@ -107,7 +107,7 @@ class Db {
      *
      */
 
-    public function Dictionary($query) {
+    public static function Dictionary($query) {
         $dictionary = array();
 
         $data = Db::GetDataArray($query);
@@ -122,7 +122,7 @@ class Db {
      * format a variable for use in a sql query
      */
 
-    public function SqlFormat($value, $type) {
+    public static function SqlFormat($value, $type) {
         switch ($type) {
             case 'string':
                 return !empty($value) ? 'E\'' . pg_escape_string(utf8_encode(trim($value))) . '\'::character varying' : 'null';
@@ -146,5 +146,3 @@ class Db {
     }
 
 }
-
-?>
