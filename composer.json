@@ -10,7 +10,8 @@
         }
     ],
     "scripts": {
-        "docker:build": "docker build -t nms .",
+        "docker:build": "docker build --tag nms .",
+        "docker:run": "docker run --publish 80:80 --rm --volume $(pwd)/src:/usr/src/app nms",
         "test": "phpunit --bootstrap vendor/autoload.php tests"
     },
     "require-dev": {
