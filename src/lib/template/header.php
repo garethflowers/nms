@@ -16,7 +16,6 @@
         <meta name="Copyright" content="&copy; Gareth Flowers <?php echo date('d-m-Y'); ?>" />
         <meta name="verify-v1" content="dpUp8hpWB2VEXcjRTQ8Glwm085I/YrqX8PnstQhyYKc=" />
         <title>NMS &ndash; Nursery Management System (by Gareth Flowers)</title>
-        <link type="text/html" rev="made" href="mailto:gareth@garethflowers.com" title="Gareth Flowers" />
         <link type="text/html" rel="home" href="http://www.garethflowers.com/project" title="NMS Project" />
         <link type="text/css" href="/lib/styles/base.css" rel="stylesheet" />
         <link type="text/css" href="/lib/styles/global.css" rel="stylesheet" />
