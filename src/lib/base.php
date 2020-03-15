@@ -59,7 +59,8 @@ session_start();
 $_SESSION['db'] = new Db($config['host'], $config['port'], $config['database'], $config['username'], $config['password']);
 
 // id checker
-function CheckID($id) {
+function CheckID($id)
+{
     if (isset($id) && !empty($id) && is_numeric($id)) {
         return intval($id);
     } else {
@@ -68,6 +69,10 @@ function CheckID($id) {
     }
 }
 
-if (!LoginLevel(1) && PHP_SELF != '/login.php') {
+if (
+    !LoginLevel(1)
+    && PHP_SELF != '/login.php'
+    && PHP_SELF != '/error.php'
+) {
     header('location: /login.php');
 }
