@@ -16,15 +16,13 @@
         background-color: #ffffff;
         border: 1px solid #cccccc;
         padding: .1em;
-        -moz-border-radius: 2px;
-        -webkit-border-radius: 2px;
+        border-radius: 2px;
     }
 
     input[type=text].error, input[type=password].error, input[type=radio].error, textarea.error, select.error {
         background-color: #ffeeee;
         border: 1px solid #ff9999;
-        -moz-border-radius: 2px;
-        -webkit-border-radius: 2px;
+        border-radius: 2px;
     }
 
     a:active, a:link, a:visited {
@@ -58,8 +56,7 @@
         padding: .1em .5em;
         font-family: 'trebuchet ms', arial, helvetica, sans-serif;
         background-color: #eee;
-        -moz-border-radius: 3px;
-        -webkit-border-radius: 3px;
+        border-radius: 3px;
         vertical-align: text-bottom;
     }
 
@@ -121,9 +118,7 @@
         background-color: #f9f9f9;
         color: #003366;
         text-decoration: none;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-
+        border-radius: 5px;
     }
 
     #header-menu li {
