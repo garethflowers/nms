@@ -7,8 +7,3 @@ function ValidateElementFail(element)
 {
     $(element).addClass('error');
 }
-
-function ValidateForm()
-{
-	
-}

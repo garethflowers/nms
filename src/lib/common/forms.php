@@ -25,7 +25,7 @@ function FormReset() {
 function FormSubmit($id, $value, $form) {
     $output = sprintf('<input type="submit" id="%s" name="%s" value="%s" />', $id, $id, $value);
 
-    $jscriptoutput = sprintf('var fv%s=new FormValidator($(\'%s\'),{onElementPass:ValidateElementPass,onElementFail:ValidateElementFail,onFormValidate:ValidateForm});', $form, $form);
+    $jscriptoutput = sprintf('var fv%s=new FormValidator($(\'%s\'),{onElementPass:ValidateElementPass,onElementFail:ValidateElementFail});', $form, $form);
     $output .= JsBlock($jscriptoutput, true);
 
     return $output;
