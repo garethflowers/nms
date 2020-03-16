@@ -2,28 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="content-language" content="EN-GB" />
-    <meta name="Rating" content="General" />
-    <meta name="Robots" content="index,follow" />
-    <meta name="Title" content="NMS (Nursery Management System) by Gareth Flowers" />
-    <meta name="keywords" content="nms, nursery, management, system, gareth, flowers, gareth flowers, gaz, projects" />
-    <meta name="description" content="NMS (Nursery Management System) project minisite designed by Gareth Flowers." />
-    <meta name="Abstract" content="NMS (Nursery Management System) project minisite designed by Gareth Flowers." />
-    <meta name="Author" content="Gareth Flowers" />
-    <meta name="Designer" content="Gareth Flowers" />
-    <meta name="Copyright" content="&copy; Gareth Flowers <?php echo date('d-m-Y'); ?>" />
-    <meta name="verify-v1" content="dpUp8hpWB2VEXcjRTQ8Glwm085I/YrqX8PnstQhyYKc=" />
-    <title>NMS &ndash; Nursery Management System (by Gareth Flowers)</title>
-    <link type="text/html" rel="home" href="http://www.garethflowers.com/project" title="NMS Project" />
-    <link type="text/css" href="/lib/styles/base.css" rel="stylesheet" />
-    <link type="text/css" href="/lib/styles/global.css" rel="stylesheet" />
-    <link type="text/css" href="/lib/styles/calendar.css" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="description" content="Nursery Management System (NMS)." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nursery Management System</title>
+    <link href="/lib/styles/base.css" rel="stylesheet" />
+    <link href="/lib/styles/global.css" rel="stylesheet" />
+    <link href="/lib/styles/calendar.css" rel="stylesheet" />
     <link href="/favicon.ico" rel="shortcut icon" />
-    <script type="text/javascript" src="/lib/resources/mootools-1.2.2.js"></script>
-    <script type="text/javascript" src="/lib/resources/vlacal-2.1.js"></script>
-    <script type="text/javascript" src="/lib/resources/sortingtable.js"></script>
-    <script type="text/javascript" src="/lib/clientscripts/validation.js"></script>
+    <script src="/lib/resources/mootools-1.2.2.js"></script>
+    <script src="/lib/resources/vlacal-2.1.js"></script>
+    <script src="/lib/resources/sortingtable.js"></script>
+    <script src="/lib/clientscripts/validation.js"></script>
 </head>
 
 <body>
