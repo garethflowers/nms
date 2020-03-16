@@ -1,0 +1,19 @@
+version: "3.7"
+services:
+  app:
+    build: .
+    container_name: nms_app
+    image: nms
+    ports:
+      - "80:80"
+    restart: always
+    volumes:
+      - ./src:/usr/src/app
+  db:
+    container_name: nms_db
+    environment:
+      POSTGRES_PASSWORD: postgres
+    image: postgres:9.4
+    restart: always
+    volumes:
+      - ./data:/var/lib/postgresql/data

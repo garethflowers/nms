@@ -8,7 +8,7 @@
 /*
  * database connection
  */
-$config['host'] = 'localhost'; // host name or ip
+$config['host'] = 'nms_db'; // host name or ip
 $config['port'] = '5432'; // host port
 $config['database'] = 'nms'; // database name
 $config['username'] = 'postgres'; // database username
@@ -29,4 +29,3 @@ $config['error_page'] = '/error.php';
  * 2 = none
  */
 $config['security_level'] = 0;
-?>

@@ -17,7 +17,7 @@
     },
     "scripts": {
         "docker:build": "docker build --tag nms .",
-        "docker:run": "docker run --publish 80:80 --rm --volume $(pwd)/src:/usr/src/app nms",
+        "docker:run": "docker-compose up --remove-orphans",
         "test": "phpunit --bootstrap vendor/autoload.php tests"
     },
     "type": "project"
