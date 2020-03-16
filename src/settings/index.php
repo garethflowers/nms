@@ -15,10 +15,10 @@ TitleSettings(false, false);
 <p>&nbsp;</p>
 
 <ul>
-    <li><a href="dates">Dates</a></li>
-    <li><a href="rooms">Rooms</a></li>
-    <li><a href="religion">Religions</a></li>
-    <li><a href="nationality">Nationalities</a></li>
+    <li><a href="/settings/dates">Dates</a></li>
+    <li><a href="/settings/rooms">Rooms</a></li>
+    <li><a href="/settings/religion">Religions</a></li>
+    <li><a href="/settings/nationality">Nationalities</a></li>
 </ul>
 
 <p>&nbsp;</p>
